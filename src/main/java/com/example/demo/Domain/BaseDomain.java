@@ -24,6 +24,10 @@ public class BaseDomain implements Serializable {
     @Column(name = "updateDate")
     private Date updateDate = new Date();
 
+    public BaseDomain() {
+
+    }
+
     public BaseDomain(Long id, boolean isActive, Date createDate, Date updateDate) {
         this.id = id;
         this.isActive = isActive;

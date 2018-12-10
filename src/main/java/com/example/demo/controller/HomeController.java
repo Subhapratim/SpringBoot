@@ -26,7 +26,7 @@ public class HomeController {
 
     @PostMapping("/signin")
     public String loginPage(@ModelAttribute("signin") UserBean userBean){
-        if (homeService.getUser(userBean.getEmail()))
+        if (homeService.getUser(userBean))
             return "home";
         else
             return "login";
@@ -39,6 +39,9 @@ public class HomeController {
 
     @PostMapping("/signup")
     public String registrationPage(@ModelAttribute("signup") UserBean userBean){
-        return "home";
+        if (homeService.addUser(userBean))
+            return "home";
+        else
+            return "registration";
     }
 }

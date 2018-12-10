@@ -17,12 +17,22 @@ public class User extends BaseDomain {
     private String name;
 
     @Column(name = "email", unique = true, nullable = false)
-    @Pattern(regexp="^[A-Z0-9._%+-]+@[A-Z0-9.-]+\\\\.[A-Z]{2,6}$")
+    @Pattern(regexp="^\\w+@[a-zA-Z_]+?\\.[a-zA-Z]{2,3}$")
     private String email;
 
     @Column(name = "password")
     @NotNull
     private String password;
+
+    public User() {
+        super();
+    }
+
+    public User(String name, String email, @NotNull String password) {
+        this.name = name;
+        this.email = email;
+        this.password = password;
+    }
 
     public User(Long id, boolean isActive, Date createDate, Date updateDate, String name, String email, @NotNull String password) {
         super(id, isActive, createDate, updateDate);
