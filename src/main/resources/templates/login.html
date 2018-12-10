@@ -10,11 +10,10 @@
     <script src="/webjars/jquery/3.1.1/jquery.min.js"></script>
 
     <link rel="stylesheet" th:href="@{/css/style.css}">
-    <link rel="text/javascript" th:href="@{/js/script.js}">
 <body>
     <div class="container">
         <div class="card card-container">
-            <img id="profile-img" class="profile-img-card" src="//ssl.gstatic.com/accounts/ui/avatar_2x.png" />
+            <img id="profile-img" class="profile-img-card" th:src="@{/images/avatar.jpg}" />
             <p id="profile-name" class="profile-name-card"></p>
             <form class="form-signin" name="signin" action="/signin" method="post">
                 <span id="reauth-email" class="reauth-email"></span>
