@@ -21,10 +21,7 @@ public class HomeService {
     }
 
     public boolean addUser(UserBean userBean) {
-        User user = new User();
-        user.setName(userBean.getName());
-        user.setEmail(userBean.getEmail());
-        user.setPassword(userBean.getPassword());
+        User user = new User(userBean.getName(), userBean.getEmail(), userBean.getPassword());
         userRepository.save(user);
         return true;
     }
