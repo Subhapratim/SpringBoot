@@ -7,8 +7,8 @@
 body, html {
     height: 100%;
     background-repeat: no-repeat;
-    background-image: linear-gradient(rgb(104, 145, 162), rgb(12, 97, 33));
-    /*background-image: linear-gradient(to top, red, yellow);*/
+    /*background-image: linear-gradient(rgb(104, 145, 162), rgb(12, 97, 33));*/
+    background-image: linear-gradient(to top right, red, yellow);
 }
 
 .card-container.card {
@@ -110,7 +110,8 @@ form-signin button {
 
 .btn.btn-signin {
     /*background-color: #4d90fe;*/
-    background-color: rgb(104, 145, 162);
+    background-color: #629BF9;
+    /*background-color: rgb(104, 145, 162);*/
     /* background-color: linear-gradient(rgb(104, 145, 162), rgb(12, 97, 33));*/
     padding: 0px;
     font-weight: 700;
@@ -130,6 +131,7 @@ form-signin button {
 .btn.btn-signin:active,
 .btn.btn-signin:focus {
     background-color: rgb(12, 97, 33);
+    background-color: #1E90FF;
 }
 
 .forgot-password {
