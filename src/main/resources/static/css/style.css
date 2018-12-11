@@ -44,8 +44,8 @@ body, html {
 }
 
 .profile-img-card {
-    width: 96px;
-    height: 96px;
+    width: 125px;
+    height: 125px;
     margin: 0 auto 10px;
     display: block;
     -moz-border-radius: 50%;
