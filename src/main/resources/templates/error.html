@@ -5,9 +5,15 @@
     <title>Error Page</title>
 </head>
 <body>
-    <h1>Something went wrong! </h1>
-    <h2>Our Engineers are on it</h2>
-    <p th:text="${error}">error report</p>
-    <a href="/">Go Home</a>
+    <div align="center">
+        <div th:switch="${statusCode}">
+            <p th:case="404"><img th:src="@{/images/404.jpg}" width="500px" height="350px"></p>
+            <p th:case="500"><img th:src="@{/images/500.jpg}" width="500px" height="350px"></p>
+        </div>
+        <h1><p th:text="${statusCode}">error report</p></h1>
+        <h1>Something went wrong! </h1>
+        <h2>Our Engineers are on it</h2>
+        <a href="/">Go Home</a>
+    </div>
 </body>
 </html>

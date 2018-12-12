@@ -6,27 +6,31 @@
     <link rel="icon" th:href="@{/images/alert-min.jpg}" type="image/gif" sizes="16x16">
 
     <link rel="stylesheet" href="/webjars/bootstrap/3.3.7/css/bootstrap.min.css" />
+    <!--<script src="/webjars/jquery/3.1.1/jquery.min.js"></script>-->
+    <script th:src="@{/js/jquery.min.js}"></script>
     <script src="/webjars/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <script src="/webjars/jquery/3.1.1/jquery.min.js"></script>
 
     <link rel="stylesheet" th:href="@{/css/style.css}">
+    <link rel="stylesheet" th:href="@{/css/changeBackground.css}">
 <body>
-    <div class="container">
-        <div class="card card-container">
-            <img id="profile-img" class="profile-img-card" th:src="@{/images/avatar.jpg}" />
-            <p id="profile-name" class="profile-name-card"></p>
-            <form class="form-signin" name="signin" action="/signin" method="post">
-                <input type="email" id="inputEmail" name="email" class="form-control" placeholder="Email address" required autofocus>
+    <div class="wrapper">
+        <div class="container">
+            <div class="card card-container">
+                <img id="profile-img" class="profile-img-card" th:src="@{/images/avatar.jpg}" />
+                <p id="profile-name" class="profile-name-card"></p>
+                <form class="form-signin" name="signin" action="/signin" method="post">
+                    <input type="email" id="inputEmail" name="email" class="form-control" placeholder="Email address" required autofocus>
 
-                <input type="password" id="inputPassword" name="password" class="form-control" placeholder="Password" required>
-                <!--<div id="remember" class="checkbox">-->
-                    <!--<label>-->
-                        <!--<input type="checkbox" value="remember-me"> Remember me-->
-                    <!--</label>-->
-                <!--</div>-->
-                <button class="btn btn-lg btn-primary btn-block btn-signin" type="submit">Sign in</button>
-                <span>New User<a href="/registration">Sign Up</a></span>
-            </form>
+                    <input type="password" id="inputPassword" name="password" class="form-control" placeholder="Password" required>
+                    <!--<div id="remember" class="checkbox">-->
+                        <!--<label>-->
+                            <!--<input type="checkbox" value="remember-me"> Remember me-->
+                        <!--</label>-->
+                    <!--</div>-->
+                    <button class="btn btn-lg btn-primary btn-block btn-signin" type="submit">Sign in</button>
+                    <span>New User<a href="/registration">Sign Up</a></span>
+                </form>
+            </div>
         </div>
     </div>
 </body>
