@@ -20,14 +20,14 @@ public class MyRestController {
         return restService.getAllUsers();
     }
 
-    @GetMapping(path = "/user")
-    public ResponseEntity<?> getUserByIdParam(@RequestParam(name = "id") Long id){
+    @GetMapping("/user/{id}")
+    public ResponseEntity<?> getUser(@PathVariable("id") Long id){
         ResponseEntity<?> responseEntity = restService.getUser(id);
         return responseEntity;
     }
 
-    @GetMapping("/user/{id}")
-    public ResponseEntity<?> getUser(@PathVariable("id") Long id){
+    @GetMapping(path = "/user")
+    public ResponseEntity<?> getUser_v1(@RequestParam(name = "id") Long id){
         ResponseEntity<?> responseEntity = restService.getUser(id);
         return responseEntity;
     }
