@@ -20,6 +20,11 @@ public class MyRestController {
         return restService.getAllUsers();
     }
 
+    @GetMapping("/user/recent")
+    public String getRecentUsers(){
+        return restService.getRecentUsers();
+    }
+
     @GetMapping("/user/{id}")
     public ResponseEntity<?> getUser(@PathVariable("id") Long id){
         ResponseEntity<?> responseEntity = restService.getUser(id);
