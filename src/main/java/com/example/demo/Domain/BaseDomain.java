@@ -1,5 +1,8 @@
 package com.example.demo.Domain;
 
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
+
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
@@ -16,10 +19,12 @@ public class BaseDomain implements Serializable {
     @Column(name = "isActive", columnDefinition = "boolean default true")
     private boolean isActive = true;
 
+    @CreationTimestamp
     @Temporal(value = TemporalType.DATE)
     @Column(name = "createDate")
     private Date createDate = new Date();
 
+    @UpdateTimestamp
     @Temporal(value = TemporalType.TIMESTAMP)
     @Column(name = "updateDate")
     private Date updateDate = new Date();
@@ -58,4 +63,5 @@ public class BaseDomain implements Serializable {
     public Date getUpdateDate() {
         return updateDate;
     }
+
 }
