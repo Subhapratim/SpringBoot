@@ -7,7 +7,6 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping(path = "/rest", produces = "application/json")
-//@RequestMapping(path = "/rest")
 @CrossOrigin(origins = "*")
 public class MyRestController {
 
