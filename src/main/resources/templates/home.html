@@ -3,11 +3,14 @@
       xmlns:th="http://www.thymeleaf.org">
 <head>
     <title>Hello World....</title>
+    <link rel="stylesheet" href="/webjars/bootstrap/3.3.7/css/bootstrap.min.css" />
+    <!--<script src="/webjars/jquery/3.1.1/jquery.min.js"></script>-->
+    <script th:src="@{/js/jquery.min.js}"></script>
+    <script src="/webjars/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body>
-<h1>Welcome to...</h1>
-<img th:src="@{/images/alert-min.jpg}"/>
-
-<a href="/rest/all">Get All Users</a>
+    <h1>Welcome to Home page....</h1>
+    <img th:src="@{/images/alert-min.jpg}"/>
+    <h3><a href="/rest/all">Get All Users</a></h3>
 </body>
 </html>
