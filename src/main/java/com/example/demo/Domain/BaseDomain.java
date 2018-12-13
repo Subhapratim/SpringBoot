@@ -11,7 +11,6 @@ import java.util.Date;
 public class BaseDomain implements Serializable {
 
     @Id
-    @Basic(optional = false)
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", nullable = false, unique = true)
     private Long id;
