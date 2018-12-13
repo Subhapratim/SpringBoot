@@ -32,10 +32,15 @@ public class MyRestController {
         return responseEntity;
     }
 
-    @PutMapping("/user/update/{id}")
+    @RequestMapping("/user/update/{id}")
     public String updateUser(@PathVariable("id") Long id, @RequestBody UserBean userBean){
         String status = restService.updateUser(id, userBean);
         return status;
+    }
+
+    @PutMapping("/user/update/{id}")
+    public void updateUser_v1(@PathVariable("id") Long id, @RequestBody UserBean userBean){
+        String status = restService.updateUser(id, userBean);
     }
 
     @RequestMapping("/user/delete/{id}")
@@ -45,8 +50,7 @@ public class MyRestController {
     }
 
     @DeleteMapping("/user/delete/{id}")
-    public String deleteUser_v1(@PathVariable("id") Long id){
+    public void deleteUser_v1(@PathVariable("id") Long id){
         String status = restService.deleteUser(id);
-        return status;
     }
 }
