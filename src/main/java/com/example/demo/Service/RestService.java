@@ -1,5 +1,6 @@
 package com.example.demo.Service;
 
+import com.example.demo.Bean.UserBean;
 import com.example.demo.BeanCollection.BeanCollection;
 import com.example.demo.Domain.User;
 import com.example.demo.RepositoryOrDao.UserRepository;
@@ -23,7 +24,7 @@ public class RestService {
 
     public ResponseEntity<?> getUser(Long id) {
         Optional<User> user = userRepository.findById(id);
-        if (user.isPresent()){
+        if (user.isPresent() && user.get().isActive()){
             return new ResponseEntity<>(user, HttpStatus.OK);
         }
         return new ResponseEntity<>(null, HttpStatus.NOT_FOUND);
@@ -34,5 +35,30 @@ public class RestService {
         beanCollection.setData((List) userRepository.findAll());
         String json = gson.toJson(beanCollection);
         return json;
+    }
+
+    public String updateUser(Long id, UserBean userBean) {
+        Optional<User> user = userRepository.findById(id);
+        if(user.isPresent()){
+            User user1 = user.get();
+            user1.setName(userBean.getName());
+            user1.setEmail(userBean.getEmail());
+            user1.setPassword(userBean.getPassword());
+            userRepository.save(user1);
+            return "Success";
+        }
+        return null;
+
+    }
+
+    public String deleteUser(Long id) {
+        Optional<User> user = userRepository.findById(id);
+        if(user.isPresent()){
+            User user1 = user.get();
+            user1.setActive(false);
+            userRepository.save(user1);
+            return "Success";
+        }
+        return null;
     }
 }
