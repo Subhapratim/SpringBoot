@@ -17,7 +17,7 @@ public class User extends BaseDomain {
     private String name;
 
     @Column(name = "email", unique = true, nullable = false)
-    @Pattern(regexp="^\\w+@[a-zA-Z_]+?\\.[a-zA-Z]{2,3}$")
+    @Pattern(regexp="^[\\w-\\.]+@([\\w-]+\\.)+[\\w-]{2,4}$")
     private String email;
 
     @Column(name = "password")
