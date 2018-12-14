@@ -22,8 +22,8 @@ public class MyRestController {
     }
 
     @GetMapping("/user/recent")
-    public ResponseEntity<?> getRecentUsers(@RequestParam(name = "no") int no){
-        return restService.getRecentUsers(no);
+    public ResponseEntity<?> getRecentUsers(@RequestParam(name = "page") int page, @RequestParam(name = "size") int size){
+        return restService.getRecentUsers(page, size);
     }
 
     @GetMapping("/user/{id}")

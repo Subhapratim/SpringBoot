@@ -31,10 +31,14 @@ public class RestService {
     }
 
 
-    public ResponseEntity<?> getRecentUsers(int n) {
+    public ResponseEntity<?> getRecentUsers(int page, int size) {
         BeanCollection beanCollection = new BeanCollection();
 //        beanCollection.setData(userRepository.findAllByOrderByCreateDateDesc());
-        beanCollection.setData(userRepository.findTopNByOrderByUpdateDateDesc(new PageRequest(0, n)));
+        List<User> lists = userRepository.findTopNByOrderByUpdateDateDesc(new PageRequest(page, size));
+        if(lists.size() == 0){
+            return new ResponseEntity<>("No Data Present....", HttpStatus.OK);
+        }
+        beanCollection.setData(lists);
         return new ResponseEntity<>(gson.toJson(beanCollection), HttpStatus.OK);
     }
 
