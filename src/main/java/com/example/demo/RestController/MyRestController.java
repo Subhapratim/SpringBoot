@@ -50,13 +50,13 @@ public class MyRestController {
     }
 
     @RequestMapping("/user/delete/{id}")
-    @ResponseStatus(code = HttpStatus.NO_CONTENT)
     public String deleteUser(@PathVariable("id") Long id){
         String status = restService.deleteUser(id);
         return status;
     }
 
     @DeleteMapping("/user/delete/{id}")
+    @ResponseStatus(code = HttpStatus.NO_CONTENT)
     public void deleteUser_v1(@PathVariable("id") Long id){
         String status = restService.deleteUser(id);
     }
