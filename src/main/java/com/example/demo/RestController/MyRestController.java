@@ -22,8 +22,8 @@ public class MyRestController {
     }
 
     @GetMapping("/user/recent")
-    public String getRecentUsers(){
-        return restService.getRecentUsers();
+    public String getRecentUsers(@RequestParam(name = "no") int no){
+        return restService.getRecentUsers(no);
     }
 
     @GetMapping("/user/{id}")

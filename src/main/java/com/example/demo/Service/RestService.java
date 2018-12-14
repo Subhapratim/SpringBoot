@@ -6,6 +6,7 @@ import com.example.demo.Domain.User;
 import com.example.demo.RepositoryOrDao.UserRepository;
 import com.google.gson.Gson;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
@@ -30,10 +31,10 @@ public class RestService {
     }
 
 
-    public String getRecentUsers() {
+    public String getRecentUsers(int n) {
         BeanCollection beanCollection = new BeanCollection();
 //        beanCollection.setData(userRepository.findAllByOrderByCreateDateDesc());
-        beanCollection.setData(userRepository.findTop3ByOrderByUpdateDateDesc());
+        beanCollection.setData(userRepository.findTopNByOrderByUpdateDateDesc(new PageRequest(0, n)));
         return gson.toJson(beanCollection);
     }
 
