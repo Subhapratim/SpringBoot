@@ -6,8 +6,6 @@ import com.example.demo.Domain.User;
 import com.example.demo.RepositoryOrDao.UserRepository;
 import com.google.gson.Gson;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.PageRequest;
-import org.springframework.data.domain.Sort;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
@@ -47,7 +45,7 @@ public class RestService {
         return new ResponseEntity<>(null, HttpStatus.NOT_FOUND);
     }
 
-    public String updateUser(Long id, UserBean userBean) {
+    public ResponseEntity<?> updateUser(Long id, UserBean userBean) {
         Optional<User> user = userRepository.findById(id);
         if(user.isPresent()){
             User user1 = user.get();
@@ -55,20 +53,20 @@ public class RestService {
             user1.setEmail(userBean.getEmail());
             user1.setPassword(userBean.getPassword());
             userRepository.save(user1);
-            return "Success";
+            return new ResponseEntity<>(user, HttpStatus.OK);
         }
-        return null;
+        return new ResponseEntity<>(null, HttpStatus.NOT_FOUND);
 
     }
 
-    public String deleteUser(Long id) {
+    public ResponseEntity<?> deleteUser(Long id) {
         Optional<User> user = userRepository.findById(id);
         if(user.isPresent()){
             User user1 = user.get();
             user1.setActive(false);
             userRepository.save(user1);
-            return "Success";
+            return new ResponseEntity<>(null, HttpStatus.OK);
         }
-        return null;
+        return new ResponseEntity<>(null, HttpStatus.NOT_FOUND);
     }
 }
