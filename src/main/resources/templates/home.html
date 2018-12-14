@@ -13,36 +13,5 @@
     <h2>Welcome to Home page....</h2>
     <img th:src="@{/images/alert-min.jpg}"/>
     <h3><a href="/rest/all">Get All Users</a></h3>
-    <!--<label>Get individual user no.</label>-->
-    <!--<input type="number" id="userId" name="userId" autofocus="">-->
-    <!--<button>select</button>-->
-    <a href="#" th:href="@{/rest/user(id=1)}">Get User 1</a> |
-    <a href="#" th:href="@{/rest/user/{id}(id=2)}">Get User 2</a> |
-    <a href="#" th:href="@{'/rest/user/'+3}">Get User 3</a>
-
-    <hr>
-
-    <!--<tr th:each="user,iterStat : ${userList}">
-        <td th:text="${user.id}"></td>
-        <td th:text="${user.name}"></td>
-        <td th:text="${user.email}"></td>
-        <td th:text="${user.password}"></td>
-        <td th:text="${user.createDate}"></td>
-        <td th:text="${user.updateDate}"></td>
-    </tr>
-    <a href="#" onclick="confirmRemoveQuestion('@{/rest/delete/(id=${user.id})}')"> Delete</a>
-    <script>
-        function confirmRemoveQuestion(link) {
-            if (show_confirm()) {
-                window.location = link;
-                this.hide();
-            } else {
-                this.hide();
-            }
-        }
-        function show_confirm() {
-            return confirm("Are you sure you want to do this?");
-        }
-    </script>-->
 </body>
 </html>
