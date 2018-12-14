@@ -28,38 +28,32 @@ public class MyRestController {
 
     @GetMapping("/user/{id}")
     public ResponseEntity<?> getUser(@PathVariable("id") Long id){
-        ResponseEntity<?> responseEntity = restService.getUser(id);
-        return responseEntity;
+        return restService.getUser(id);
     }
 
     @GetMapping(path = "/user")
     public ResponseEntity<?> getUser_v1(@RequestParam(name = "id") Long id){
-        ResponseEntity<?> responseEntity = restService.getUser(id);
-        return responseEntity;
+        return restService.getUser(id);
     }
 
     @RequestMapping("/user/update/{id}")
     public ResponseEntity<?> updateUser(@PathVariable("id") Long id, @RequestBody UserBean userBean){
-        ResponseEntity<?> responseEntity = restService.updateUser(id, userBean);
-        return responseEntity;
+        return restService.updateUser(id, userBean);
     }
 
     @PutMapping("/user/update")
     public ResponseEntity<?> updateUser_v1(@RequestParam(name = "id") Long id, @RequestBody UserBean userBean){
-        ResponseEntity<?> responseEntity = restService.updateUser(id, userBean);
-        return responseEntity;
+        return restService.updateUser(id, userBean);
     }
 
     @RequestMapping("/user/delete/{id}")
     public ResponseEntity<?> deleteUser(@PathVariable("id") Long id){
-        ResponseEntity<?> responseEntity = restService.deleteUser(id);
-        return responseEntity;
+        return restService.deleteUser(id);
     }
 
     @DeleteMapping("/user/delete")
     @ResponseStatus(code = HttpStatus.NO_CONTENT)
     public ResponseEntity<?> deleteUser_v1(@RequestParam(name = "id") Long id){
-        ResponseEntity<?> responseEntity = restService.deleteUser(id);
-        return responseEntity;
+        return restService.deleteUser(id);
     }
 }
