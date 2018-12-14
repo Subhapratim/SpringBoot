@@ -4,6 +4,7 @@ import com.example.demo.Bean.UserBean;
 import com.example.demo.Domain.User;
 import com.example.demo.Service.RestService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -49,6 +50,7 @@ public class MyRestController {
     }
 
     @RequestMapping("/user/delete/{id}")
+    @ResponseStatus(code = HttpStatus.NO_CONTENT)
     public String deleteUser(@PathVariable("id") Long id){
         String status = restService.deleteUser(id);
         return status;
