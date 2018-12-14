@@ -16,13 +16,13 @@ public class MyRestController {
     @Autowired
     RestService restService;
 
-    @GetMapping("/all")
-    public String getAllUsers(){
+    @GetMapping("/user/all")
+    public ResponseEntity<?> getAllUsers(){
         return restService.getAllUsers();
     }
 
     @GetMapping("/user/recent")
-    public String getRecentUsers(@RequestParam(name = "no") int no){
+    public ResponseEntity<?> getRecentUsers(@RequestParam(name = "no") int no){
         return restService.getRecentUsers(no);
     }
 

@@ -23,19 +23,19 @@ public class RestService {
     @Autowired
     UserRepository userRepository;
 
-    public String getAllUsers() {
+    public ResponseEntity<?> getAllUsers() {
         BeanCollection beanCollection = new BeanCollection();
         beanCollection.setData((List) userRepository.findAll());
         String json = gson.toJson(beanCollection);
-        return json;
+        return new ResponseEntity<>(json, HttpStatus.OK);
     }
 
 
-    public String getRecentUsers(int n) {
+    public ResponseEntity<?> getRecentUsers(int n) {
         BeanCollection beanCollection = new BeanCollection();
 //        beanCollection.setData(userRepository.findAllByOrderByCreateDateDesc());
         beanCollection.setData(userRepository.findTopNByOrderByUpdateDateDesc(new PageRequest(0, n)));
-        return gson.toJson(beanCollection);
+        return new ResponseEntity<>(gson.toJson(beanCollection), HttpStatus.OK);
     }
 
     public ResponseEntity<?> getUser(Long id) {
